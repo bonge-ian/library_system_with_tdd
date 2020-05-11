@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     protected $guarded = [];
+
+    public function path()
+    {
+        return sprintf('/book/%s', $this->id);
+    }
 }
