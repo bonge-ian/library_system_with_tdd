@@ -8,7 +8,7 @@ Route::patch('/book/{book}', 'BooksController@update');
 Route::delete('/book/{book}', 'BooksController@destroy');
 
 // author routes
-Route::post('/author', 'AuthorsController@store');
+Route::post('/authors', 'AuthorsController@store');
 
 Route::post('/checkout/{book}', 'CheckoutBookController@store');
 Route::post('/checkin/{book}', 'CheckinBookController@store');
