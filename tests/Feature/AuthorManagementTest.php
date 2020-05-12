@@ -25,6 +25,22 @@ class AuthorManagementTest extends TestCase
         $this->assertEquals('1995/02/22', $author->first()->dob->format('Y/m/d'));
     }
 
+    /** @test */
+    public function a_name_is_required()
+    {
+        $res = $this->post('/authors', array_merge($this->data(), ['name' => '']));
+
+        $res->assertSessionHasErrors('name');
+    }
+
+    /** @test */
+    public function a_dob_is_required()
+    {
+        $res = $this->post('/authors', array_merge($this->data(), ['dob' => '']));
+
+        $res->assertSessionHasErrors('dob');
+    }
+
     protected function data()
     {
         return [
